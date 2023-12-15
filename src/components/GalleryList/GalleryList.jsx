@@ -15,11 +15,15 @@ function GalleryList() {
       const response = await axios.get(`${baseUrl}?offset=${offset}&limit=10`);
       console.log(response.data);
 
-      const galleryPhotos = response.data.photos.map((p) => ({
+      const promise=response.data.photos
+      console.log(promise)
+
+      const galleryPhotos = promise.map((p) => ({
         key: p.id,
         name: p.title,
         img: p.url,
-        desc: p.description
+        desc: p.description,
+        id:p.id
       }));
 
       setList(galleryPhotos);
@@ -55,7 +59,7 @@ function GalleryList() {
         {loading ? (
           'is loading..'
         ) : (
-          List.map((p) => <Gallery name={p.name} img={p.img} key={p.key} />)
+          List.map((p) => <Gallery name={p.name} img={p.img} key={p.key}  id={p.id}/>)
         )}
       </div>
       <div className="flex justify-center mt-4">

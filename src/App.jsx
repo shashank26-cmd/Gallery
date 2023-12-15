@@ -1,14 +1,14 @@
-
-import Galex from "./components/Galex/Galex"
+import CustomRoutes from "./routes/CustomRoutes";
 
 function App() {
-
   return (
     <>
-
-    <Galex/>
+      <h1 className="bg-purple-700 text-white font-semibold text-4xl mt-4 tracking-wider text-center font-serif p-4 rounded">
+        Galex
+      </h1>
+      <CustomRoutes />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
